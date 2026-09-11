@@ -1,2 +1,618 @@
 # Portfolio
 HANNAN'S Portfolio 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hannan Jaleel K. | Content Writer & Scriptwriter Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card-bg: #111827;
+      --card-border: #1f293d;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --malayalam-bg: #1a2234;
+      --tag-bg: rgba(56, 189, 248, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    /* Hero Section */
+    header {
+      padding: 5rem 0 3rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--tag-bg);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 2rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-main);
+      text-decoration: none;
+      background: #162032;
+      border: 1px solid var(--card-border);
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      background: var(--card-border);
+      transform: translateY(-1px);
+    }
+
+    /* Skills Grid */
+    .skills-section {
+      padding: 3rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+
+    .skill-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .skill-card li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Projects & Filter */
+    .projects-section {
+      padding: 4rem 0;
+    }
+
+    .section-head {
+      margin-bottom: 2rem;
+    }
+
+    .section-head h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      color: var(--text-main);
+      background: var(--accent-glow);
+      border-color: var(--accent);
+    }
+
+    /* Portfolio Cards */
+    .portfolio-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Bilingual Details Accordion */
+    details {
+      background: var(--malayalam-bg);
+      border: 1px solid #26334d;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 0.85rem 1.1rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      user-select: none;
+      outline: none;
+    }
+
+    summary:hover {
+      color: var(--accent);
+    }
+
+    .accordion-content {
+      padding: 1.25rem;
+      border-top: 1px solid #26334d;
+      font-size: 0.92rem;
+    }
+
+    .copy-box {
+      margin-bottom: 1rem;
+      padding-left: 0.75rem;
+      border-left: 2px solid var(--accent);
+    }
+
+    .copy-box.malayalam {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #e2e8f0;
+    }
+
+    .copy-box.english {
+      color: #94a3b8;
+    }
+
+    .copy-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+      color: var(--accent);
+    }
+
+    /* Skincare Table */
+    .skincare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .skincare-table th, .skincare-table td {
+      border: 1px solid #26334d;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+
+    .skincare-table th {
+      background: #141b2d;
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 3rem 0;
+      text-align: center;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 650px) {
+      h1 { font-size: 2.1rem; }
+      .contact-row { flex-direction: column; }
+      .project-card { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Hero -->
+    <header>
+      <div class="badge">🚀 Available for Strategic Roles & Freelance Projects</div>
+      <h1>Hannan Jaleel K.</h1>
+      <p class="subtitle">
+        Content Strategist, Video Scriptwriter & Ad Copywriter. Combining a BSc IT foundation with Master's-level Multimedia training to turn complex technical and educational concepts into high-converting campaigns.
+      </p>
+      <div class="contact-row">
+        <a href="mailto:hjaleelk@gmail.com" class="contact-link">
+          ✉️ hjaleelk@gmail.com[span_0](start_span)[span_0](end_span)
+        </a>
+        <a href="tel:+917907077658" class="contact-link">
+          📞 +91 7907077658[span_1](start_span)[span_1](end_span)
+        </a>
+        <span class="contact-link">
+          📍 Kozhikode, Kerala, India[span_2](start_span)[span_2](end_span)
+        </span>
+      </div>
+    </header>
+
+    <!-- Skills -->
+    <section class="skills-section">
+      <div class="skill-card">
+        <h3>Creative Writing</h3>
+        <ul>
+          <li>Video Commercial Scripts</li>
+          <li>Direct-Response Ad Copy</li>
+          <li>Reel & Short-Form Hooks</li>
+          <li>Brand Journalism & PR</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Technical Skills</h3>
+        <ul>
+          <li>BSc in Information Technology[span_3](start_span)[span_3](end_span)</li>
+          <li>MA Multimedia (In-Progress)</li>
+          <li>Python, HTML5, CSS Basics[span_4](start_span)[span_4](end_span)</li>
+          <li>Web & Database Concepts[span_5](start_span)[span_5](end_span)</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Production Tools</h3>
+        <ul>
+          <li>Adobe Premiere Pro[span_6](start_span)[span_6](end_span)</li>
+          <li>Adobe Photoshop[span_7](start_span)[span_7](end_span)</li>
+          <li>Visual Storyboarding</li>
+          <li>Meta Ads Planning[span_8](start_span)[span_8](end_span)</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <ul>
+          <li><strong>Malayalam:</strong> Native (Creative/Scripting)[span_9](start_span)[span_9](end_span)</li>
+          <li><strong>English:</strong> Professional Working[span_10](start_span)[span_10](end_span)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Work Projects -->
+    <section class="projects-section">
+      <div class="section-head">
+        <h2>Featured Portfolio Work</h2>
+        <p style="color: var(--text-muted); margin-top: 0.35rem;">
+          Real campaigns spanning educational lead generation, luxury dermatology, tech carousels, and decentralized startup journalism.
+        </p>
+
+        <!-- Filter Controls -->
+        <div class="filter-tabs">
+          <button class="filter-btn active" onclick="filterSelection('all')">All Work</button>
+          <button class="filter-btn" onclick="filterSelection('scripts')">Video Scripts</button>
+          <button class="filter-btn" onclick="filterSelection('ads')">Ad Copies & Contests</button>
+          <button class="filter-btn" onclick="filterSelection('dermatology')">Clinical Thought Leadership</button>
+          <button class="filter-btn" onclick="filterSelection('pr')">PR & Ecosystem Vlogs</button>
+        </div>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card" data-category="scripts">
+          <div class="card-meta">
+            <span class="card-tag">Video Scriptwriting • EdTech</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">G-TEC Medical College Campus[span_11](start_span)[span_11](end_span)</span>
+          </div>
+          <h3 class="card-title">Relatable Street Satire for Career Upskilling (SAP)</h3>
+          <p class="card-desc">
+            Broke through standard academic promo tropes by writing a sharp on-location hook that tackles educated unemployment with self-aware humor.
+          </p>
+          <details>
+            <summary>View Script & Context Breakdown</summary>
+            <div class="accordion-content">
+              <div class="copy-box malayalam">
+                <div class="copy-label">Script Hook (Malayalam)</div>
+                "ഈ റോഡിലേക്കിറങ്ങി ഈ കല്ലെടുത്ത് മുകളിലേക്കിട്ടാൽ... അത് വന്ന് വീഴുന്നത് ഒരു തൊഴിൽ രഹിതന്റെ തലയിലാവും... (കല്ല് എറിയുന്നു) Yes guys ഞാനും ഒരു തൊഴിൽ രഹിതയായിരുന്നു... but not any more. (Full Confidence) ഇപ്പോ ഞാൻ ex-തൊഴിൽ രഹിതയാണ്..."
+              </div>
+              <div class="copy-box english">
+                <div class="copy-label">English Translation & Strategic Context</div>
+                <em>"If you toss a pebble up on this street, chances are it'll hit an unemployed graduate. Yes guys, I was one of them too... but not anymore! I'm officially an ex-unemployed graduate."</em><br><br>
+                <strong>Strategy:</strong> Stops scrolling instantly by voicing universal job-search frustration before pitching SAP certification, practical training, and guaranteed mentorship as the bridge out of unemployment.
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-category="scripts">
+          <div class="card-meta">
+            <span class="card-tag">Brand Commercial • Dermatology</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Aluer Aesthetics, Calicut</span>
+          </div>
+          <h3 class="card-title">Contrast-Driven Clinic Commercial</h3>
+          <p class="card-desc">
+            Visual and auditory shift moving from environmental stress (blistering heat & acne flare-ups) to calm, clinical luxury.
+          </p>
+          <details>
+            <summary>View Video Directives & Script</summary>
+            <div class="accordion-content">
+              <div class="copy-box english">
+                <div class="copy-label">Video Concept & Voiceover (English)</div>
+                <strong>Visual:</strong> Anchor squints against direct tropical midday sun, stressed and fatigued. Cut to seamless entry into an air-conditioned clinic with a calm, clinical reception.<br><br>
+                <strong>VO:</strong> <em>"With this scorching sun and our busy workdays… our skin easily gets tanned, tired, and starts to lose its glow. And if you're dealing with acne, it only makes things worse. But there is a solution... A place that offers expert care tailored for your skin and hair: Aluer Aesthetics."</em>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-category="ads">
+          <div class="card-meta">
+            <span class="card-tag">Viral Contest Funnel • Sports Marketing</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Social Ad Campaign</span>
+          </div>
+          <h3 class="card-title">World Cup Final Goal Scorer Prediction Contest</h3>
+          <p class="card-desc">
+            Capitalized on high-buzz global sports chatter by converting friendly football rivalry into an Instagram growth engine with over 3 tech prize tiers.
+          </p>
+          <details>
+            <summary>View Campaign Ad Copy</summary>
+            <div class="accordion-content">
+              <div class="copy-box malayalam">
+                <div class="copy-label">Ad Copy (Malayalam)</div>
+                "പെനാൽറ്റി അടിച്ചതു നോക്കണ്ട, ആരടിച്ചാലും നിങ്ങൾ അർജന്റീന കപ്പടിക്കൂല... ഈ കരച്ചിലിതുവരെ തീർന്നില്ലേ? വേറൊരു കാര്യമുണ്ട്! 2026 World cup final നോട് അനുബന്ധിച്ച് സംഘടിപ്പിക്കുന്ന Final goal scorer prediction contest..."
+              </div>
+              <div class="copy-box english">
+                <div class="copy-label">Strategy & Funnel Mechanics</div>
+                Starts with playful banter on match penalties to drive comments, then funnels users to follow the account and tag three friends to qualify for smartphones, speakers, and smartwatches.
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card" data-category="ads">
+          <div class="card-meta">
+            <span class="card-tag">Technical Explainer • Tech Carousel</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Enterprise Training</span>
+          </div>
+          <h3 class="card-title">Microsoft Power Platform: Enterprise Demystification</h3>
+          <p class="card-desc">
+            Educational slide copy designed for LinkedIn, breaking down low-code enterprise tools for graduates without heavy technical backgrounds.
+          </p>
+          <details>
+            <summary>View Carousel Outline</summary>
+            <div class="accordion-content">
+              <div class="copy-box english">
+                <div class="copy-label">Content Structure</div>
+                • <strong>Slide 1 (Hook):</strong> "Why is this one term appearing everywhere on your LinkedIn job feed?" (Highlighting Power Platform Engineering).<br>
+                • <strong>Slide 2 (The Breakdown):</strong> Explaining low-code architecture—building apps, workflows, and dashboards without manual codebases.<br>
+                • <strong>Slide 3 (The Tools):</strong> Power Apps, Power Automate, Power BI, and Dataverse.<br>
+                • <strong>Slide 4 (The Value):</strong> Speed, Automation, and Intelligence delivered to enterprise employers.
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card" data-category="dermatology">
+          <div class="card-meta">
+            <span class="card-tag">Authority Engine • 7-Part Series</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Short-Form Reels</span>
+          </div>
+          <h3 class="card-title">Clinical Skincare & Lifestyle Authority Engine</h3>
+          <p class="card-desc">
+            A 7-reel educational engine written to debunk viral cosmetic myths with biological evidence, establishing clinic trust over quick-fix promises.
+          </p>
+          <details>
+            <summary>View All 7 Topic Breakdowns</summary>
+            <div class="accordion-content">
+              <table class="skincare-table">
+                <thead>
+                  <tr>
+                    <th>Topic</th>
+                    <th>Hook</th>
+                    <th>Clinical Mechanism</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>01. Screen Time Aging</strong></td>
+                    <td><em>"Your phone is digitally aging your face while you scroll."</em></td>
+                    <td>HEV blue light penetrates past UV to the dermis, suppressing melatonin and cellular renewal.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>02. Skin Fasting</strong></td>
+                    <td><em>"Stop sandblasting your face with too many products."</em></td>
+                    <td>Continuous acid peeling induces chronic micro-inflammation; reset with a 28-day ceramide-only fast.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>03. Tropical Humidity</strong></td>
+                    <td><em>"In Kerala, your skin isn't just oily—it's a bioreactor."</em></td>
+                    <td>Heavy creams trap humidity and sebum, prompting fungal acne; switch to non-occlusive water gels.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>04. Internal Chemistry</strong></td>
+                    <td><em>"Your skin is a diagnostic window into your lifestyle."</em></td>
+                    <td>High cortisol melts hyaluronic reserves; sugar causes glycation, making collagen brittle.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>05. Consistency</strong></td>
+                    <td><em>"A cheap routine used for 90 days beats an expensive 7-day one."</em></td>
+                    <td>Cells need 28-40 days to renew; constant changes trigger chemical whiplash.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>06. Barrier Health</strong></td>
+                    <td><em>"You don't have sensitive skin; you have a broken shield."</em></td>
+                    <td>Leaking lipid mortars cause TEWL (water loss); solved by a 3:1:1 physiological lipid ratio.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>07. Clinical Reset</strong></td>
+                    <td><em>"Topical creams have limits. Your skin needs a cellular reboot."</em></td>
+                    <td>Deep stimulation via microneedling triggers natural growth factor generation.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card" data-category="pr">
+          <div class="card-meta">
+            <span class="card-tag">PR Journalism & Ecosystem Vlogs</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Talrop Ecosystem Projects[span_12](start_span)[span_12](end_span)</span>
+          </div>
+          <h3 class="card-title">Decentralized Tech Ecosystem Coverage & Documentaries</h3>
+          <p class="card-desc">
+            Print journalism releases and long-form campus documentary vlogs articulating Silicon Valley-style decentralized models across Kerala and Tamil Nadu.
+          </p>
+          <details>
+            <summary>View Press Release & Vlog Concepts</summary>
+            <div class="accordion-content">
+              <div class="copy-box english">
+                <div class="copy-label">1. Print PR: Tamil Nadu Expansion</div>
+                Published reportage covering Talrop's soft launch across 39 parliamentary constituencies in Tamil Nadu, linking regional tech parks to global markets.
+              </div>
+              <div class="copy-box english">
+                <div class="copy-label">2. Vlog Documentary: Christ College Techies Park</div>
+                <em>"തൃശ്ശൂരിൽ സിലിക്കൺ വാലി ഒരുക്കുന്ന ക്രൈസ്റ്റ് കോളേജ്!"</em> — Explores Frederick Terman's role in creating Silicon Valley at Stanford University, framing Christ College's NAAC A++ campus as an active Industry-on-Campus environment for student startups.
+              </div>
+              <div class="copy-box english">
+                <div class="copy-label">3. Vlog Documentary: Mavoor Village Park</div>
+                <em>"മാറ്റത്തിന്റെ മധുരം നുകർന്ന് മാവൂർ"</em> — Documents the evolution of Mavoor from an inactive industrial town into a decentralized IT village park enabling local digital careers.
+              </div>
+            </div>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Hannan Jaleel K. • Content Strategist & Scriptwriter • Kozhikode, Kerala[span_13](start_span)[span_13](end_span)</p>
+    </footer>
+  </div>
+
+  <script>
+    function filterSelection(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('onclick').includes(category)) {
+          btn.classList.add('active');
+        }
+      });
+
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
