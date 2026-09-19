@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>  
+<head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="c:\Users\user\OneDrive\Desktop\portfolio.html\_MG_6207.jpg" alt="Profile Picture" class="profile-pic">
+    <h1>Hannan Jaleel k</h1>
+    <p>Hi, I’m Hannan Jaleel K, a BSc IT graduate currently pursuing my MA Multimedia at JDT Islam, Kozhikode.
+
+I’m a professional Content Writer with 1+ year of experience in content writing, copywriting, digital marketing, SEO, and social media content. I also have experience as a freelance Digital Marketer and Web Developer, creating engaging content, scripts, copies, and digital campaigns for different brands.
+
+With a combination of writing, marketing, technology, and multimedia skills, I focus on creating content that connects with audiences and supports real business goals. I’ve worked with multiple brands across different industries, helping
+
+!</p>
+<h2>Skills</h2>
+<ul>
+    <li>Content Writing</li>
+    <li>Copywriting</li>
+    <li>Digital Marketing</li>
+    <li>SEO</li>
+    <li>Social Media Content</li>
+    <li>Web Development</li>
+</ul>
+<h2>Experience</h2> 
+<p>1+ year of experience in content writing, copywriting, digital marketing, SEO, and social media content. Freelance Digital Marketer and Web Developer.</p>
+<h2>Education</h2>
+<p>BSc Information Technology</p>
+<p>MA Multimedia</p>
+    <h2>Works</h2>
+    <p>Here are some of my recent projects and works:</p>
+    <ul>
+        <li>video: [vlog script about talrop;s village park]<li>
+</li>   
+    Video: Mavoor Village Park Vlog
+
+    <br>
+
+    <a href="https://drive.google.com/drive/folders/1EIZoFARS7Y1WpYL7BPxupRyJWFX4PP45?usp=drive_link"
+       target="_blank">
+        View Project
+    </a>
+</li>
+        <li>Project 3: [Description of Project 3]</li>
+    </ul>
+</body>
+</html>
