@@ -8,29 +8,69 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--black:#050505;--black2:#0b0b0b;--gold:#c6a15b;--gold-light:#e3ca92;--cream:#f5f0e6;--muted:#858078;--line:rgba(198,161,91,.22);--soft:rgba(255,255,255,.08)}
+:root{
+    --ink:#07111f;
+    --ink-soft:#0d1a2a;
+    --ink-panel:#101f31;
+    --champagne:#d8b878;
+    --champagne-light:#f0dca8;
+    --champagne-dark:#917545;
+    --ivory:#f7f1e5;
+    --slate:#9aa7b5;
+    --line:rgba(216,184,120,.28);
+    --soft:rgba(247,241,229,.1);
+    --teal:rgba(93,164,164,.16);
+}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;background:var(--black);color:var(--cream);font-family:"Inter",sans-serif}
-body{overflow:hidden}
-.viewer-header{height:74px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;gap:20px;background:rgba(5,5,5,.94);border-bottom:1px solid var(--soft);position:relative;z-index:2}
-.logo{font-family:"Playfair Display",serif;font-size:1.4rem;letter-spacing:.05em;color:var(--cream);text-decoration:none}.logo span{color:var(--gold)}
-.viewer-title{color:var(--muted);font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-align:center}
-.back-button,.open-button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 17px;border:1px solid var(--line);color:var(--cream);font-size:.66rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;transition:.3s ease;white-space:nowrap}
-.back-button:hover,.open-button:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(198,161,91,.08);transform:translateY(-2px)}
-.viewer-main{height:calc(100vh - 74px);padding:18px 4vw 20px;display:flex;flex-direction:column;gap:14px}
+html,body{width:100%;height:100%;background:var(--ink);color:var(--ivory);font-family:"Inter",sans-serif}
+body{overflow:hidden;position:relative}
+body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+}
+body::after{
+    content:"";position:fixed;width:42vw;height:42vw;right:-18vw;top:-22vw;border-radius:50%;
+    background:radial-gradient(circle,var(--teal),transparent 68%);filter:blur(28px);pointer-events:none;
+    animation:ambientGlow 12s ease-in-out infinite alternate;
+}
+.viewer-header{
+    height:74px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    background:rgba(7,17,31,.94);border-bottom:1px solid var(--soft);position:relative;z-index:2;
+}
+.logo{font-family:"Playfair Display",serif;font-size:1.4rem;letter-spacing:.05em;color:var(--ivory);text-decoration:none}
+.viewer-title{color:var(--slate);font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-align:center}
+.back-button,.open-button{
+    display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 17px;
+    border:1px solid var(--line);color:var(--ivory);font-size:.66rem;font-weight:600;
+    letter-spacing:.11em;text-transform:uppercase;text-decoration:none;transition:.35s ease;white-space:nowrap;
+}
+.back-button:hover,.open-button:hover{border-color:var(--champagne);color:var(--champagne-light);background:rgba(216,184,120,.1);transform:translateY(-2px)}
+.viewer-main{height:calc(100vh - 74px);padding:18px 4vw 20px;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}
 .viewer-info{display:flex;align-items:center;justify-content:space-between;gap:20px;flex:0 0 auto}
-.viewer-info h1{font-family:"Playfair Display",serif;color:var(--cream);font-size:clamp(1.5rem,3vw,2.4rem);font-weight:500}.viewer-info h1 em{color:var(--gold);font-style:italic}
-.pdf-shell{position:relative;flex:1;min-height:0;border:1px solid var(--line);background:var(--black2);box-shadow:0 18px 60px rgba(0,0,0,.4);overflow:hidden}
+.viewer-info h1{font-family:"Playfair Display",serif;color:var(--ivory);font-size:clamp(1.5rem,3vw,2.4rem);font-weight:500}
+.viewer-info h1 em{color:var(--champagne);font-style:italic}
+.pdf-shell{position:relative;flex:1;min-height:0;border:1px solid var(--line);background:var(--ink-panel);box-shadow:0 18px 60px rgba(0,0,0,.4);overflow:hidden}
+.pdf-shell::before{
+    content:"";position:absolute;top:0;left:-35%;width:28%;height:1px;z-index:1;
+    background:linear-gradient(90deg,transparent,var(--champagne-light),transparent);
+    animation:sheen 8s ease-in-out infinite;pointer-events:none;
+}
 #pdf-frame{display:block;width:100%;height:100%;border:0;background:#fff}
-.error{display:none;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:18px;text-align:center;padding:30px;color:var(--muted)}
-.error strong{color:var(--cream);font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:500}
-@media(max-width:650px){body{overflow:auto}.viewer-header{height:68px;padding:0 5vw}.viewer-title{display:none}.viewer-main{height:calc(100vh - 68px);padding:16px 3vw}.viewer-info{align-items:flex-start;flex-direction:column;gap:12px}.open-button{align-self:flex-start}.pdf-shell{min-height:calc(100vh - 155px)}}
-@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+.error{display:none;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:18px;text-align:center;padding:30px;color:var(--slate)}
+.error strong{color:var(--ivory);font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:500}
+@keyframes sheen{0%,25%{left:-35%;opacity:0}40%{opacity:1}72%,100%{left:110%;opacity:0}}
+@keyframes ambientGlow{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-3vw,3vw,0) scale(1.08)}}
+@media(max-width:650px){
+    body{overflow:auto}.viewer-header{height:68px;padding:0 5vw}.viewer-title{display:none}
+    .viewer-main{height:calc(100vh - 68px);padding:16px 3vw}.viewer-info{align-items:flex-start;flex-direction:column;gap:12px}
+    .open-button{align-self:flex-start}.pdf-shell{min-height:calc(100vh - 155px)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
 <header class="viewer-header">
-<a href="index.html" class="logo">Hannan<span>.</span></a>
+<a href="index.html" class="logo">Hannan</a>
 <div class="viewer-title">Selected Work · PDF Viewer</div>
 <a href="index.html" class="back-button">← Back to Portfolio</a>
 </header>
